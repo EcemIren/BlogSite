@@ -3,5 +3,52 @@
     ViewBag.Title = "Homepage";
 }
 
-<h2>Index</h2>
+@{ 
+    Html.RenderAction("ListJournalWidget");
+}
+
+@section Categories{
+
+     @{
+
+         Html.RenderAction("CategoryWidget", "Category");
+
+    }
+}
+
+@section Tags{
+
+    @{
+
+        Html.RenderAction("TagWidget", "Tag");
+
+    }
+}
+
+@section Search{
+      
+  @{
+
+    <div class="sidebox widget">
+        <h3 class="widget-title section-title">Search</h3>
+        <form class="searchform" method="get">
+            <label><i class="icon-search"></i></label>
+            <input type="text" id="s2" name="s" value="Search something" onfocus="this.value=''" onblur="this.value='Search something'" />
+            <button type="submit" class="btn">Find</button>
+        </form>
+    </div>
+
+  }
+}
+
+
+@section AboutSite{
+
+    @{
+
+        Html.RenderPartial("AboutSite");
+
+    }
+    
+}
 
