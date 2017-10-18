@@ -16,9 +16,16 @@ namespace BlogSite.Controllers
             return View();
         }
 
-        public PartialViewResult ListJournalWidget()
+        public ActionResult ListJournalWidget()
         {
-            return PartialView(context.Journals.ToList());
+            var data = context.Journals.ToList();
+            return View("ListJournalWidget",data);
+        }
+
+        public PartialViewResult PopularJournalWidget()
+        {
+            var model = context.Journals.OrderByDescending(x => x.CreationDate).Take(3);
+            return PartialView(model);
         }
     }
 }

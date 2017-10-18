@@ -17,6 +17,8 @@ namespace BlogSite.Models
         public string MailAdres { get; set; }
         public string Detail { get; set; }
         public Nullable<bool> Gender { get; set; }
+        public Nullable<int> ImageId { get; set; }
+        public virtual Image Image { get; set; }
         public virtual ICollection<Journal> Journals { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }

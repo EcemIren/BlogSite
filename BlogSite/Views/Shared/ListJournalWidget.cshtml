@@ -1,0 +1,42 @@
+﻿@{ 
+    Layout = null;
+}
+@model IEnumerable<BlogSite.Models.Journal>
+
+@helper ReduceContent(string content)
+{
+if(content.Length>300)
+{
+    @content.Substring(0, 300);
+}
+
+else
+{
+    @content;
+}
+
+
+}
+<div class="blog-posts col-blog">
+
+    @foreach (BlogSite.Models.Journal journal in Model)
+    {
+    <div class="post row">
+        <div class="col-sm-4">
+            <figure>
+                <a href="/Journal/Detail/@journal.JournalId">
+                    <div class="text-overlay">
+                        <div class="info"><span>Read More</span></div>
+                    </div>
+                    <img src="@journal.Image.MediumSize" alt="" />
+                </a>
+            </figure>
+        </div>
+        <div class="col-sm-8 post-content">
+            <div class="meta"><span class="date">@journal.CreationDate.ToShortDateString()</span><span class="comments"><a href="#">@journal.Comments.Count <i class="icon-chat-1"></i></a></span></div>
+            <h2 class="post-title"><a href="/Journal/Details/@journal.JournalId">@journal.Title</a></h2>
+            <p>@ReduceContent(journal.ContentPart)</p>
+        </div>
+    </div>
+    }
+</div>

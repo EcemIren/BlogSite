@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace BlogSite.Models.Mapping
@@ -29,6 +29,7 @@ namespace BlogSite.Models.Mapping
             this.Property(t => t.DisplayCount).HasColumnName("DisplayCount");
             this.Property(t => t.LikeCount).HasColumnName("LikeCount");
             this.Property(t => t.AuthorId).HasColumnName("AuthorId");
+            this.Property(t => t.ImageId).HasColumnName("ImageId");
 
             // Relationships
             this.HasMany(t => t.Tags)
@@ -46,6 +47,9 @@ namespace BlogSite.Models.Mapping
             this.HasRequired(t => t.Category)
                 .WithMany(t => t.Journals)
                 .HasForeignKey(d => d.CategoryId);
+            this.HasOptional(t => t.Image)
+                .WithMany(t => t.Journals)
+                .HasForeignKey(d => d.ImageId);
 
         }
     }

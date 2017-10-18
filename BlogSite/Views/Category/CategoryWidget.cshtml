@@ -7,7 +7,7 @@
     <ul class="circled">
         @foreach (BlogSite.Models.Category category in Model)
         {
-          <li><a href="#">@category.Name (@category.Journals.Count)</a></li>
+          <li><a href="/Category/Index/@category.CategoryId">@category.Name (@category.Journals.Count)</a></li>
         }
     </ul>
 </div>

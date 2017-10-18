@@ -1,0 +1,19 @@
+﻿@model IEnumerable<BlogSite.Models.Journal>
+
+
+<div class="sidebox widget">
+    <h3 class="widget-title section-title">Popular Posts</h3>
+    <ul class="post-list">
+    @foreach (BlogSite.Models.Journal journal in Model)
+    {
+        <li>
+            <div class="icon-overlay"> <a href="blog-post.html"><img src="style/images/art/a1.jpg" alt="" /> </a> </div>
+            <div class="meta">
+                <h5><a href="blog-post.html">@journal.Title</a></h5>
+                <em>@journal.CreationDate.ToShortDateString() <span class="comments"><a href="#">@journal.Comments.Count <i class="icon-chat-1"></i></a></span></em>
+            </div>
+        </li>
+    }
+    </ul>
+    <!-- /.post-list -->
+</div>

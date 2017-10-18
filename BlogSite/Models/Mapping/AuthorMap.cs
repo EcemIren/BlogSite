@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
@@ -34,6 +33,7 @@ namespace BlogSite.Models.Mapping
             this.Property(t => t.MailAdres).HasColumnName("MailAdres");
             this.Property(t => t.Detail).HasColumnName("Detail");
             this.Property(t => t.Gender).HasColumnName("Gender");
+            this.Property(t => t.ImageId).HasColumnName("ImageId");
 
             // Relationships
             this.HasMany(t => t.Users)
@@ -45,6 +45,9 @@ namespace BlogSite.Models.Mapping
                         m.MapRightKey("UserId");
                     });
 
+            this.HasOptional(t => t.Image)
+                .WithMany(t => t.Authors)
+                .HasForeignKey(d => d.ImageId);
 
         }
     }

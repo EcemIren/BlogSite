@@ -8,6 +8,7 @@ namespace BlogSite.Models
         public Journal()
         {
             this.Comments = new List<Comment>();
+            this.Images = new List<Image>();
             this.Tags = new List<Tag>();
         }
 
@@ -19,9 +20,12 @@ namespace BlogSite.Models
         public int DisplayCount { get; set; }
         public int LikeCount { get; set; }
         public int AuthorId { get; set; }
+        public Nullable<int> ImageId { get; set; }
         public virtual Author Author { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
+        public virtual Image Image { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
     }
 }

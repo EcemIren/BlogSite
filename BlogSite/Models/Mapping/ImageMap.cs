@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace BlogSite.Models.Mapping
@@ -31,6 +31,12 @@ namespace BlogSite.Models.Mapping
             this.Property(t => t.BigSize).HasColumnName("BigSize");
             this.Property(t => t.Video).HasColumnName("Video");
             this.Property(t => t.MakaleId).HasColumnName("MakaleId");
+
+            // Relationships
+            this.HasOptional(t => t.Journal)
+                .WithMany(t => t.Images)
+                .HasForeignKey(d => d.MakaleId);
+
         }
     }
 }

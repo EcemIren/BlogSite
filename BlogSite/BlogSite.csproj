@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BlogSite</RootNamespace>
     <AssemblyName>BlogSite</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -92,9 +92,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -125,7 +125,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\blog-post.html" />
     <Content Include="Content\blog.html" />
+    <Content Include="Content\image\defaultUser.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style\css\blank.html" />
     <Content Include="Content\style\css\bootstrap.min.css" />
@@ -324,9 +326,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Classes\Settings.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JournalController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -390,10 +394,15 @@
     <Content Include="Views\Shared\_viewstart.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ListJournalWidget.cshtml" />
     <Content Include="Views\Category\CategoryWidget.cshtml" />
     <Content Include="Views\Tag\TagWidget.cshtml" />
-    <Content Include="Views\Home\AboutSite.cshtml" />
+    <Content Include="Views\Shared\AboutSite.cshtml" />
+    <Content Include="Views\Home\PopularJournalWidget.cshtml" />
+    <Content Include="Views\Shared\ListJournalWidget.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Shared\Search.cshtml" />
+    <Content Include="Views\Tag\Index.cshtml" />
+    <Content Include="Views\Journal\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

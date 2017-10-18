@@ -11,14 +11,22 @@ namespace BlogSite.Controllers
     {
         BlogContext context = new BlogContext();
         // GET: Tag
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            return View(id);
         }
 
         public PartialViewResult TagWidget()
         {
             return PartialView(context.Tags.ToList());
+        }
+
+
+        public ActionResult ListJournalsOfTag(int id)
+        {
+            var data = context.Journals.Where(x => x.Tags.Any(y => y.TagId == id)).ToList();
+
+            return View("ListJournalWidget", data);
         }
     }
 }

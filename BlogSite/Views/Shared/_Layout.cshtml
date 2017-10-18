@@ -114,11 +114,26 @@
                 </div>
                 <!-- /.content -->
                 <aside class="col-sm-4 sidebar lp30">
-                   @RenderSection("PopularJournals",false)
-                   @RenderSection("AboutSite", false)
-                   @RenderSection("Search",false)
-                   @RenderSection("Categories", false)
-                   @RenderSection("Tags", false)
+                  @{ 
+                      Html.RenderAction("PopularJournalWidget", "Home");
+                  }
+
+                    @{
+                        Html.RenderPartial("AboutSite", "Home");
+                    }
+
+                    @{
+                        Html.RenderPartial("Search");
+                    }
+
+                    @{
+                        Html.RenderAction("CategoryWidget", "Category");
+                    }
+
+                    @{
+                        Html.RenderAction("TagWidget", "Tag");
+                    }
+
                     <!-- /.widget -->
                 </aside>
                 <!-- /.col-sm-4 .sidebar -->
